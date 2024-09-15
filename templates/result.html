@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+<!--             background-size: cover; /* Cover the entire background */-->
+            background-repeat: no-repeat; /* Prevent the background image from repeating */
+            margin: 0;
+            padding: 0;
+            background-color:rgb(191, 232, 126);
+            background-image: url(https://static.wixstatic.com/media/08784c_9e6f73cc19bb4bffacc101bdb2ce4565~mv2.gif);
+        }
+
+        .container {
+
+            max-width: 600px;
+            margin: 90px auto;
+            background-color: #fff; /* White container background */
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow effect */
+            text-align: center;
+              background-color: rgba(255, 255, 255, 0.5);
+
+        }
+
+        h1 {
+            color: #333; /* Dark gray heading color */
+            margin-bottom: 20px;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Image shadow effect */
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            background-color: #007bff; /* Blue button color */
+            color: #fff; /* White text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classification Result</h1>
+        {% if image_filename %}
+<!--            <img src="{{ url_for('static', filename='uploads/' + image_filename) }}" alt="Uploaded Image">-->
+        {% else %}
+            <p>No image available</p>
+        {% endif %}
+        <b>Predicted Disease: {{ prediction }}</b> <br>
+        <button class="back-button" onclick="goBack()">Back</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
